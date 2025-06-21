@@ -1,0 +1,60 @@
+name: Quick Build Windows
+
+on:
+  workflow_dispatch:  # 仅手动触发
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'dialog_handler.py'
+      - 'utils.py'
+      - 'requirements.txt'
+      - 'imgs/**'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 15  # 15分钟超时
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: Build executable
+      run: |
+        pyinstaller --onefile --console --add-data "imgs;imgs" --add-data "utils.py;." --hidden-import cv2 --hidden-import pyautogui --hidden-import numpy --hidden-import PIL --hidden-import tkinter --hidden-import pyscreeze --name dialog_handler dialog_handler.py
+        
+    - name: Create package
+      run: |
+        # 创建简单的README
+        echo "弹窗处理程序 - Windows版本" > dist/README.txt
+        echo "双击 dialog_handler.exe 运行程序" >> dist/README.txt
+        echo "按 Ctrl+C 停止程序" >> dist/README.txt
+        
+        # 创建ZIP包
+        Compress-Archive -Path "dist/*" -DestinationPath "dialog_handler_windows.zip"
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dialog-handler-windows
+        path: dialog_handler_windows.zip
+        retention-days: 7
+        
+    - name: Build summary
+      run: |
+        $size = (Get-Item "dist/dialog_handler.exe").Length
+        $sizeMB = [math]::Round($size / 1MB, 2)
+        echo "## ✅ 构建完成!" >> $env:GITHUB_STEP_SUMMARY
+        echo "文件大小: $sizeMB MB" >> $env:GITHUB_STEP_SUMMARY
+        echo "下载: 在Actions页面下载构建产物" >> $env:GITHUB_STEP_SUMMARY 
