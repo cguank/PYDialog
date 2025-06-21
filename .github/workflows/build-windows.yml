@@ -45,23 +45,23 @@ jobs:
       run: |
         pyinstaller --onefile --console --add-data "imgs;imgs" --add-data "utils.py;." --hidden-import cv2 --hidden-import pyautogui --hidden-import numpy --hidden-import PIL --hidden-import PIL._tkinter_finder --hidden-import tkinter --hidden-import pyscreeze --hidden-import pytweening --hidden-import mouseinfo --hidden-import keyboard --hidden-import pygetwindow --hidden-import pyrect --name dialog_handler dialog_handler.py
         
-    - name: Create README for distribution
-      run: |
-        echo "弹窗处理程序 - Windows版本" > dist/README.txt
-        echo >> dist/README.txt
-        echo "使用说明:" >> dist/README.txt
-        echo "1. 双击 dialog_handler.exe 运行程序" >> dist/README.txt
-        echo "2. 程序会自动监控屏幕上的弹窗" >> dist/README.txt
-        echo "3. 按 Ctrl+C 停止程序" >> dist/README.txt
-        echo >> dist/README.txt
-        echo "注意事项:" >> dist/README.txt
-        echo "- 确保 imgs 文件夹与 exe 文件在同一目录" >> dist/README.txt
-        echo "- 程序需要管理员权限才能进行屏幕截图" >> dist/README.txt
-        echo "- 如果遇到问题，请检查防火墙设置" >> dist/README.txt
-        echo >> dist/README.txt
-        echo "文件结构:" >> dist/README.txt
-        echo "dialog_handler.exe  - 主程序" >> dist/README.txt
-        echo "imgs/              - 弹窗模板图片文件夹" >> dist/README.txt
+    # - name: Create README for distribution
+    #   run: |
+    #     echo "弹窗处理程序 - Windows版本" > dist/README.txt
+    #     echo. >> dist/README.txt
+    #     echo "使用说明:" >> dist/README.txt
+    #     echo "1. 双击 dialog_handler.exe 运行程序" >> dist/README.txt
+    #     echo "2. 程序会自动监控屏幕上的弹窗" >> dist/README.txt
+    #     echo "3. 按 Ctrl+C 停止程序" >> dist/README.txt
+    #     echo. >> dist/README.txt
+    #     echo "注意事项:" >> dist/README.txt
+    #     echo "- 确保 imgs 文件夹与 exe 文件在同一目录" >> dist/README.txt
+    #     echo "- 程序需要管理员权限才能进行屏幕截图" >> dist/README.txt
+    #     echo "- 如果遇到问题，请检查防火墙设置" >> dist/README.txt
+    #     echo. >> dist/README.txt
+    #     echo "文件结构:" >> dist/README.txt
+    #     echo "dialog_handler.exe  - 主程序" >> dist/README.txt
+    #     echo "imgs/              - 弹窗模板图片文件夹" >> dist/README.txt
         
     - name: Get file size
       id: file_size
