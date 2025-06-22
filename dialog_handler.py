@@ -37,8 +37,8 @@ class DialogHandler:
                 screen_bgr = cv2.cvtColor(screen_array, cv2.COLOR_RGBA2BGR)
             else:  # RGB
                 screen_bgr = cv2.cvtColor(screen_array, cv2.COLOR_RGB2BGR)
-            # 缩小图像尺寸为原来的一半
-            screen_bgr = cv2.resize(screen_bgr, (screen_bgr.shape[1]//2, screen_bgr.shape[0]//2))
+            # mac缩小图像尺寸为原来的一半
+            # screen_bgr = cv2.resize(screen_bgr, (screen_bgr.shape[1]//2, screen_bgr.shape[0]//2))
             print(f"=========screen_bgr.shape{screen_bgr.shape}")
             return screen_bgr
         except Exception as e:
@@ -100,14 +100,13 @@ class DialogHandler:
                 # pyautogui.moveTo(location[0], location[1], duration=0.5)
                 pyautogui.moveTo(click_x, click_y, duration=0.5)
                 pyautogui.click()
-                logging.info(f"成功点击弹窗，位置: ({click_x}, {click_y})")
                 # 保存当前截图
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 screenshot = pyautogui.screenshot()
                 screenshot_path = f"screenshots/click_{timestamp}.png"
                 os.makedirs("screenshots", exist_ok=True)
                 screenshot.save(screenshot_path)
-                logging.info(f"截图已保存至: {screenshot_path}")
+                logging.info(f"成功点击弹窗，位置: ({click_x}, {click_y}) 截图已保存至: {screenshot_path}")
                 exit()
                 return True
             return False
@@ -136,13 +135,16 @@ class DialogHandler:
 if __name__ == "__main__":
     # 获取屏幕宽高
     screen_width, screen_height = pyautogui.size()
-    print(f"屏幕分辨率: {screen_width} x {screen_height}")
+    logging.info(f"屏幕分辨率: {screen_width} x {screen_height}")
     
     # 创建处理器实例，可以调整匹配阈值
     # 如果匹配太严格，可以降低阈值，比如 0.5 或 0.4
     # 如果匹配太宽松，可以提高阈值，比如 0.7 或 0.8
     handler = DialogHandler(match_threshold=0.1)
-    
+    screen = handler.capture_screen()
+    logging.info(f"屏幕截图分辨率: {screen.shape}")
+    cv2.imwrite('./screenshot.png',screen)
+
     # 实时打印鼠标位置
     # def print_mouse_position():
     #     while True:
@@ -161,7 +163,9 @@ if __name__ == "__main__":
     template_paths = get_template_paths("./imgs")
     
     # 遍历所有模板图片进行监控
-    # for template_path in template_paths:
-    #         handler.monitor_dialog(template_path)
+    for template_path in template_paths:
+            template_img = cv2.imread(template_path)
+            logging.info(f'img dimention {template_img.shape}')
+            
     # template_path = "./imgs/img2.png"
     handler.monitor_dialog(template_paths) 

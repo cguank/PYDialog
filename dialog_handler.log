@@ -1,3 +1,46 @@
 2025-06-21 18:00:12,931 - INFO - Е╪─Е╖▀Г⌡▒Ф▌╖Е╪╧Г╙≈...
 2025-06-21 18:00:23,373 - INFO - Ф┬░Е┼÷Г┌╧Е┤╩Е╪╧Г╙≈О╪▄Д╫█Г╫╝: (1441, 452)
 2025-06-21 18:00:24,760 - INFO - Ф┬╙Е⌡╬Е╥╡Д©²Е╜≤Х┤Ё: screenshots/click_20250621_180023.png
+2025-06-22 14:30:04,251 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:30:04,253 - ERROR - ╫ьм╪й╖╟э: PyAutoGUI was unable to import pyscreeze. (This is likely because you're running a version of Python that Pillow (which pyscreeze depends on) doesn't support currently.) Please install this module to enable the function you tried to call.
+2025-06-22 14:30:05,255 - ERROR - ╫ьм╪й╖╟э: PyAutoGUI was unable to import pyscreeze. (This is likely because you're running a version of Python that Pillow (which pyscreeze depends on) doesn't support currently.) Please install this module to enable the function you tried to call.
+2025-06-22 14:30:06,262 - ERROR - ╫ьм╪й╖╟э: PyAutoGUI was unable to import pyscreeze. (This is likely because you're running a version of Python that Pillow (which pyscreeze depends on) doesn't support currently.) Please install this module to enable the function you tried to call.
+2025-06-22 14:30:07,194 - INFO - ╪Ю©ьрямёж╧
+2025-06-22 14:31:19,882 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:31:22,450 - INFO - ╪Ю©ьрямёж╧
+2025-06-22 14:37:04,261 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:37:04,262 - INFO - img dimention {template_img.shape}
+2025-06-22 14:37:04,262 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:37:07,877 - INFO - ╪Ю©ьрямёж╧
+2025-06-22 14:37:56,045 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:37:56,046 - INFO - img dimention (111, 438, 3)
+2025-06-22 14:37:56,046 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:37:57,574 - INFO - ╪Ю©ьрямёж╧
+2025-06-22 14:44:06,397 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:44:06,438 - INFO - фад╩╫ьм╪╥ж╠Фбй: (1080, 1920, 3)
+2025-06-22 14:44:52,380 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:44:52,413 - INFO - фад╩╫ьм╪╥ж╠Фбй: (1080, 1920, 3)
+2025-06-22 14:44:52,433 - INFO - img dimention (111, 438, 3)
+2025-06-22 14:44:52,433 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:45:10,392 - INFO - ╪Ю©ьрямёж╧
+2025-06-22 14:45:43,787 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:45:43,832 - INFO - фад╩╫ьм╪╥ж╠Фбй: (1080, 1920, 3)
+2025-06-22 14:45:43,850 - INFO - img dimention (111, 438, 3)
+2025-06-22 14:45:43,850 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:45:45,562 - INFO - Ёи╧╕╣Ц╩В╣╞╢╟ё╛н╩жц: (1136, 368)
+2025-06-22 14:45:45,642 - INFO - ╫ьм╪ря╠ё╢Фжа: screenshots/click_20250622_144545.png
+2025-06-22 14:46:06,916 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:46:06,949 - INFO - фад╩╫ьм╪╥ж╠Фбй: (1080, 1920, 3)
+2025-06-22 14:46:06,968 - INFO - img dimention (111, 438, 3)
+2025-06-22 14:46:06,968 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:46:10,976 - INFO - Ёи╧╕╣Ц╩В╣╞╢╟ё╛н╩жц: (1324, 620)
+2025-06-22 14:46:11,070 - INFO - ╫ьм╪ря╠ё╢Фжа: screenshots/click_20250622_144610.png
+2025-06-22 14:46:52,664 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:46:52,699 - INFO - фад╩╫ьм╪╥ж╠Фбй: (1080, 1920, 3)
+2025-06-22 14:46:52,717 - INFO - img dimention (111, 438, 3)
+2025-06-22 14:46:52,718 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:47:25,474 - INFO - фад╩╥ж╠Фбй: 1920 x 1080
+2025-06-22 14:47:25,511 - INFO - фад╩╫ьм╪╥ж╠Фбй: (1080, 1920, 3)
+2025-06-22 14:47:25,531 - INFO - img dimention (111, 438, 3)
+2025-06-22 14:47:25,531 - INFO - ©╙й╪╪Ю©ь╣╞╢╟...
+2025-06-22 14:47:34,224 - INFO - Ёи╧╕╣Ц╩В╣╞╢╟ё╛н╩жц: (1260, 459) ╫ьм╪ря╠ё╢Фжа: screenshots/click_20250622_144734.png
