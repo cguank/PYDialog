@@ -1,4 +1,5 @@
 import os
+import sys
 import cv2
 import pyautogui
 import numpy as np
@@ -39,7 +40,7 @@ class DialogHandler:
                 screen_bgr = cv2.cvtColor(screen_array, cv2.COLOR_RGB2BGR)
             # mac缩小图像尺寸为原来的一半
             # screen_bgr = cv2.resize(screen_bgr, (screen_bgr.shape[1]//2, screen_bgr.shape[0]//2))
-            print(f"=========screen_bgr.shape{screen_bgr.shape}")
+            # print(f"=========screen_bgr.shape{screen_bgr.shape}")
             return screen_bgr
         except Exception as e:
             logging.error(f"截图失败: {str(e)}")
@@ -51,7 +52,7 @@ class DialogHandler:
             # 读取模板图片
             template_img = cv2.imread(template_path)
             template_img = cv2.resize(template_img, (template_img.shape[1]//2, template_img.shape[0]//2))
-            print(f"=========template_img.shape{template_img.shape}")
+            # print(f"=========template_img.shape{template_img.shape}")
             if template_img is None:
                 logging.error(f"无法读取模板图片: {template_path}")
                 return None
@@ -68,15 +69,15 @@ class DialogHandler:
                 # 保存预处理后的图片用于调试
                 result4 = cv2.matchTemplate(handled_screen_json[img_type], handled_template_json[img_type], cv2.TM_SQDIFF_NORMED)
                 min_val4, max_val4, min_loc4, max_loc4 = cv2.minMaxLoc(result4)
-                print(f"传统预处理方法 - 最大匹配值: {min_val4} {max_val4}")
+                # print(f"传统预处理方法 - 最大匹配值: {min_val4} {max_val4}")
                 
                 if min_val4 < self.match_threshold:
-                    print(f"✅ 传统预处理方法找到匹配! 位置: {max_loc4}, 匹配值: {max_val4:.3f}")
+                    print(f"✅ 传统预处理方法找到匹配! 位置: {min_loc4}, 匹配值: {min_val4:.3f}")
                     return min_loc4
             except Exception as e:
                 print(f"传统预处理方法失败: {e}")
 
-            print(f"❌ 所有方法都未达到阈值 {self.match_threshold}")
+            print(f"❌ 最大匹配值: {min_val4} {max_val4}, 未达到阈值 {self.match_threshold}")
             return None
 
         except Exception as e:
@@ -93,8 +94,8 @@ class DialogHandler:
                 print("========location",location,h,w)
                 
                 # 计算点击位置（模板中心）
-                click_x = location[0] + w // 4
-                click_y = location[1] + h // 4
+                click_x = location[0] + w // 2
+                click_y = location[1] + h // 2
                 
                 # 移动鼠标并点击
                 # pyautogui.moveTo(location[0], location[1], duration=0.5)
@@ -107,7 +108,7 @@ class DialogHandler:
                 os.makedirs("screenshots", exist_ok=True)
                 screenshot.save(screenshot_path)
                 logging.info(f"成功点击弹窗，位置: ({click_x}, {click_y}) 截图已保存至: {screenshot_path}")
-                exit()
+                sys.exit()
                 return True
             return False
         except Exception as e:
